@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConvertMoney</title>
+</head>
+<body>
+    <form>
+        <input type="number" id="amount" placeholder="Enter your amount">
+        <select id="select1">
+            <option value="vn1" seleted>Việt Nam(VNĐ)</option>
+            <option value="usa1">USA($)</option>
+        </select>
+        ------->
+        <select id="select2">
+            <option value="usa2" seleted>USA($)</option>
+            <option value="vn2">Việt Nam(VNĐ)</option>
+        </select>
+        <button onclick="Select()" type="button">Convert</button>
+        <p style="color:green;" id="displayKq"></p>
+    </form>
+    <script>
+        let select1 = document.getElementById("select1");
+        let select2 = document.getElementById("select2");
+        select1.addEventListener("change",Select);
+        let number = document.getElementById("amount");
+        let man_hinh = document.getElementById("displayKq");
+        select1.value="vn1";
+        select2.value="usa2";
+        function Select(){
+            if(select1.value=="vn1" && select2.value=="usa2"){
+                man_hinh.innerHTML=((Number)(number.value)/23000 +" USD");
+            }else if(select1.value=="usa1"&& select2.value=="vn2"){
+                man_hinh.innerHTML=((Number)(number.value)*23000+" VNĐ");
+            }else man_hinh.innerHTML=((Number)(number.value))
+        }
+    </script>
+</body>
+</html>
