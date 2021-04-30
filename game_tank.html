@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tank Game</title>
+    <style>
+        button{width:50px;}
+    </style>
+</head>
+<body>
+    <div style="height:300px;width: 300px;background-color:black;">
+    <img src="tank.png"  id="tank" Style="position:relative;top:0px;left:0px;" height="30px" width="30px"/>
+    </div>
+    <table>
+        <tr>
+            <td></td>
+            <td><button type="button" onclick="len()">lên</button></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><button type="button" onclick="trai()">trái</button></td>
+            <td></td>
+            <td><button type="button" onclick="phai()">phải</button></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button type="button" onclick="xuong()">xuống</button></td>
+            <td></td>
+        </tr>
+    </table>
+    <p id="check"></p>
+    <script>
+        let huong = document.getElementById("tank");
+        let y=0,x=0;
+        function xuong() {
+            if(y<270){
+            y+=5;
+            huong.style["top"]=y+"px";}
+            huong.style.transform=("rotate("+180+"deg)");
+        }
+        function len(){
+            y-=5;
+            huong.style["top"]=y+"px";
+            huong.style.transform=("rotate("+0+"deg)");
+        }
+        function trai(){
+            x-=5;
+            huong.style["left"]=x+"px";
+            huong.style.transform=("rotate("+-90+"deg)");
+        }
+        function phai(){
+            if(x<270){
+            x+=5;
+            huong.style["left"]=x+"px";
+            huong.style.transform=("rotate("+90+"deg)");}
+        }
+    </script>
+</body>
+</html>
